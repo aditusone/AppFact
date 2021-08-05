@@ -15,9 +15,9 @@ class CreateProvidersTable extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
-            $table->string('CodSAP', 10);
-            $table->string('RIF_CI', 11);
-            $table->string('Razon_Social',50);
+            $table->string('CodSAP', 10)->unique()->required();
+            $table->string('RIF_CI', 15)->unique()->required();
+            $table->string('Razon_Social',50)->unique()->required();
             $table->timestamps();
         });
     }

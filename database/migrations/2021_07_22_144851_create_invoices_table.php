@@ -21,7 +21,7 @@ class CreateInvoicesTable extends Migration
                 ->on("providers")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
-            $table->string('Nro_fact', 20);
+            $table->string('Nro_fact', 20)->unique()->required();
             $table->string('nro_control',20);
             $table->date('fecha_reg');
             $table->date('fecha_nod');   # Identificar que fecha se registrara
@@ -34,7 +34,7 @@ class CreateInvoicesTable extends Migration
             $table->decimal('base_fac',9,2);
             $table->decimal('pagado',9,2);
             $table->decimal('deuda',9,2);
-            $table->decimal('total',9,2);
+            $table->decimal('total',10,2);
             $table->string('Observaciones',100);
             $table->timestamps();
         });
