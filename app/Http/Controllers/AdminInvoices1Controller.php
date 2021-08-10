@@ -30,32 +30,41 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Proveedor","name"=>"id_providers","join"=>"providers,Razon_Social"];
-			$this->col[] = ["label"=>"Nro Fact","name"=>"Nro_fact"];
-			$this->col[] = ["label"=>"Nro Control","name"=>"nro_control"];
-			$this->col[] = ["label"=>"Fecha Registro","name"=>"fecha_reg"];
-			$this->col[] = ["label"=>"Fecha Emi","name"=>"fecha_emi"];
-			$this->col[] = ["label"=>"Fecha Ven","name"=>"fecha_ven"];
-			$this->col[] = ["label"=>"Status","name"=>"Status","join"=>"estatus,Status"];
+            $this->col[] = ["label"=>"Nro Factura","name"=>"Nro_fact"];
+			$this->col[] = ["label"=>"Codigo SAP","name"=>"id_providers","join"=>"providers,CodSAP"];
+            $this->col[] = ["label"=>"Rif/CI","name"=>"id_providers","join"=>"providers,RIF_CI"];
+            $this->col[] = ["label"=>"Proveedor","name"=>"id_providers","join"=>"providers,Razon_Social"];
+            $this->col[] = ["label"=>"Nro. Cotización","name"=>"num_Cotiza"];
+            $this->col[] = ["label"=>"Fecha de Cotización","name"=>"id_providers","join"=>"quotes,fecha"];
+            $this->col[] = ["label"=>"Fecha Emisión","name"=>"fecha_emi"];
+            $this->col[] = ["label"=>"Fecha Vencimiento","name"=>"fecha_ven"];
+            $this->col[] = ["label"=>"Tipo","name"=>"tipo","join"=>"tfac,tipo"];
+            $this->col[] = ["label"=>"Fecha Registro","name"=>"fecha_reg"];
+            $this->col[] = ["label"=>"Estatus","name"=>"Status","join"=>"estatus,Status"];
+            $this->col[] = ["label"=>"Observaciones","name"=>"Observaciones"];
+
+
+
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Proveedor','name'=>'id_providers','type'=>'select2','validation'=>'required|min:1|max:20','width'=>'col-sm-10','datatable'=>'providers,Razon_Social'];
-			$this->form[] = ['label'=>'Nro Fact','name'=>'Nro_fact','type'=>'text','validation'=>'required|min:1|max:20','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Nro Factura','name'=>'Nro_fact','type'=>'text','validation'=>'required|min:1|max:20','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Nro Control','name'=>'nro_control','type'=>'text','validation'=>'required|min:1|max:20','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Fecha Reg','name'=>'fecha_reg','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Fecha Nod','name'=>'fecha_nod','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Fecha Emi','name'=>'fecha_emi','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Fecha Ven','name'=>'fecha_ven','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Cotización Nro.','name'=>'num_Cotiza','type'=>'select2','validation'=>'min:1|max:20','width'=>'col-sm-10','datatable'=>'quotes,numero'];
+            $this->form[] = ['label'=>'Fecha Registro','name'=>'fecha_reg','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
+			#$this->form[] = ['label'=>'Fecha Nod','name'=>'fecha_nod','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Fecha Emisión','name'=>'fecha_emi','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Fecha Vencimiento','name'=>'fecha_ven','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Tipo','name'=>'tipo','type'=>'select2','validation'=>'required|min:1|max:10','width'=>'col-sm-10','datatable'=>'tfac,tipo'];
-			$this->form[] = ['label'=>'Doc Ent','name'=>'Doc_ent','type'=>'text','validation'=>'required|min:1|max:10','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Status','name'=>'Status','type'=>'select2','validation'=>'required|min:1|max:20','width'=>'col-sm-10','datatable'=>'estatus,Status'];
+			$this->form[] = ['label'=>'Documento Consignado','name'=>'Doc_ent','type'=>'text','validation'=>'required|min:1|max:10','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Estatus','name'=>'Status','type'=>'select2','validation'=>'required|min:1|max:20','width'=>'col-sm-10','datatable'=>'estatus,Status'];
 			$this->form[] = ['label'=>'Tipo de Moneda','name'=>'T_Moneda','type'=>'select2','validation'=>'required|min:1|max:10','width'=>'col-sm-10','datatable'=>'mpays,T_Moneda'];
 			$this->form[] = ['label'=>'Base Fac','name'=>'base_fac','type'=>'money','validation'=>'required|min:1|max:11','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Pagado','name'=>'pagado','type'=>'money','validation'=>'required|min:1|max:11','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Deuda','name'=>'deuda','type'=>'money','validation'=>'required|min:1|max:11','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'money','validation'=>'required|min:1|max:11','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Pagado','name'=>'pagado','type'=>'money','validation'=>'required|min:1|max:12','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Deuda','name'=>'deuda','type'=>'money','validation'=>'required|min:1|max:12','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Total','name'=>'total','type'=>'money','validation'=>'required|min:1|max:15','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Observaciones','name'=>'Observaciones','type'=>'text','validation'=>'required|min:1|max:100','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 

@@ -30,14 +30,14 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"CodSAP","name"=>"CodSAP"];
+			$this->col[] = ["label"=>"Codigo SAP","name"=>"CodSAP"];
 			$this->col[] = ["label"=>"RIF CI","name"=>"RIF_CI"];
-			$this->col[] = ["label"=>"Razon Social","name"=>"Razon_Social"];
+			$this->col[] = ["label"=>"Razón Social","name"=>"Razon_Social"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Codigo SAP','name'=>'CodSAP','type'=>'text','validation'=>'required|CodSAP|unique:providers,CodSAP,'.CRUDBooster::getCurrentId(),'width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'CodSAP','name'=>'CodSAP','type'=>'text','validation'=>'required|min:1|max:10','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'RIF CI','name'=>'RIF_CI','type'=>'text','validation'=>'required|min:1|max:15','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Razon Social','name'=>'Razon_Social','type'=>'text','validation'=>'required|min:1|max:50','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE

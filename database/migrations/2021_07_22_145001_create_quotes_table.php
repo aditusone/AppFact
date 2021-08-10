@@ -15,10 +15,10 @@ class CreateQuotesTable extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_invoices");
-            $table->foreign('id_invoices')
+            $table->unsignedBigInteger("id_providers");
+            $table->foreign('id_providers')
                     ->references("id")
-                    ->on("invoices")
+                    ->on("providers")
                     ->onDelete("cascade")
                     ->onUpdate("cascade");
             $table->string('numero',11);

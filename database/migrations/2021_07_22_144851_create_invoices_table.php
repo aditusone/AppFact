@@ -24,17 +24,17 @@ class CreateInvoicesTable extends Migration
             $table->string('Nro_fact', 20)->unique()->required();
             $table->string('nro_control',20);
             $table->date('fecha_reg');
-            $table->date('fecha_nod');   # Identificar que fecha se registrara
+            $table->string('num_Cotiza',11) ->nullable();   # cotizacion correspondiente
             $table->date('fecha_emi');
             $table->date('fecha_ven');
             $table->string('tipo',10);      # Tipo de Factura (un Servicio o un Bien )
             $table->string('Doc_ent',10);   # Documento entregado (Original o copia)
             $table->string('Status', 20);   # Estado de la factura (Pagada o Registrada)
             $table->string('T_Moneda',10);  # Tipo demoneda (Bs, $, Zelle)
-            $table->decimal('base_fac',9,2);
-            $table->decimal('pagado',9,2);
-            $table->decimal('deuda',9,2);
-            $table->decimal('total',10,2);
+            $table->decimal('base_fac',12,2);
+            $table->decimal('pagado',12,2);
+            $table->decimal('deuda',12,2);
+            $table->decimal('total',15,2);
             $table->string('Observaciones',100);
             $table->timestamps();
         });
